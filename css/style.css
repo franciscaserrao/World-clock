@@ -52,7 +52,7 @@ h2 {
 }
 
 a {
-  color: rgba(118, 7, 140, 0.5);
+  color: rgba(0, 0, 0, 0.6);
   text-decoration: none;
   transition: all ease-in-out 150ms;
 }
