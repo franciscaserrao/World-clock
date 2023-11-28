@@ -19,10 +19,22 @@ function updateTime() {
   sydneyTimeElement.innerHTML = moment()
     .tz("Australia/Sydney")
     .format("HH:mm:ss");
+
+  let lisbonElement = document.querySelector("#lisbon");
+  let lisbonDateElement = lisbonElement.querySelector(".date");
+  let lisbonTimeElement = lisbonElement.querySelector(".time");
+
+  lisbonDateElement.innerHTML = moment()
+    .tz("Europe/Lisbon")
+    .format("MMMM Do YYYY");
+  lisbonTimeElement.innerHTML = moment().tz("Europe/Lisbon").format("HH:mm:ss");
 }
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.replace("_", " ").split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
